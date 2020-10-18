@@ -10,7 +10,7 @@ import MapView, { PROVIDER_GOOGLE, Callout, Marker } from "react-native-maps";
 import { Feather } from "@expo/vector-icons";
 
 import mapMarker from "../images/map-marker.png";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { RectButton } from "react-native-gesture-handler";
 import api from "../services/api";
 
@@ -27,7 +27,7 @@ export default function OrphanagesMap() {
   const navigation = useNavigation();
 
   /* Jogar os dados da api dentro do array orphanages */
-  useEffect(() => {
+  useFocusEffect(() => {
     api.get("orphanages").then((response) => {
       setOrphanages(response.data);
     });
